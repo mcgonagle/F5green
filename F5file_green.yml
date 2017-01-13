@@ -31,7 +31,7 @@
             monitors:
               - /Common/icmp
 
-      - name: Add a new node blue02 
+      - name: Add a new node blue02
         bigip_node:
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
@@ -43,7 +43,7 @@
             monitors:
               - /Common/icmp
 
-      - name: Add a new node green01 
+      - name: Add a new node green01
         bigip_node:
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
@@ -55,7 +55,7 @@
             monitors:
               - /Common/icmp
 
-      - name: Add a new node green02 
+      - name: Add a new node green02
         bigip_node:
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
