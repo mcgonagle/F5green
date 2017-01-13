@@ -120,7 +120,7 @@
                 - "Sorry_iRule"
             validate_certs: "no"
 
-      - name: Drop members out of gw_pool
+      - name: Drop members out of blue_green_pool
         bigip_pool_member:
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
@@ -134,3 +134,18 @@
         with_items:
             - blue01
             - blue02
+
+      - name: Drop members out of blue_green_pool
+        bigip_pool_member:
+            server: "{{ inventory_hostname }}"
+            user: "{{username}}"
+            password: "{{password}}"
+            state: "present"
+            session_state: "enabled"
+            host: "{{ item }}"
+            pool: "blue_green_pool"
+            port: "80"
+            validate_certs: "false"
+        with_items:
+            - green01
+            - green02
